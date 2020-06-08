@@ -6,5 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'sorteo-app';
+  title = 'Bienvenido a Angular';
+
+  trabajo: string='Prueba técnica Comfenalco con spring boot y Angular 7';
+  por:string='Nelson J Posada Flórez'
 }
