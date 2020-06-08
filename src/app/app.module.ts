@@ -8,6 +8,20 @@ import { GanadoresComponent } from './ganadores/ganadores.component';
 import { PersonasComponent } from './personas/personas.component';
 import { PremiosComponent } from './premios/premios.component';
 import {PersonaService} from './personas/persona.service';
+import {RouterModule, Routes} from '@angular/router'
+import {PremioService} from './premios/premio.service';
+
+import {HttpClientModule} from '@angular/common/http';
+import { FormComponent } from './personas/form.component';
+import {FormsModule} from '@angular/forms'
+
+const routes: Routes=[
+  {path: '', redirectTo:'/personas', pathMatch: 'full'},
+  {path: 'ganadores', component: GanadoresComponent},
+  {path: 'personas', component: PersonasComponent},
+  {path: 'premios', component: PremiosComponent},
+  {path: 'personas/form', component: FormComponent}
+];
 
 @NgModule({
   declarations: [
@@ -16,12 +30,16 @@ import {PersonaService} from './personas/persona.service';
     FooterComponent,
     GanadoresComponent,
     PersonasComponent,
-    PremiosComponent
+    PremiosComponent,
+    FormComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule,
+    FormsModule,
+    RouterModule.forRoot(routes)
   ],
-  providers: [PersonaService],
+  providers: [PersonaService, PremioService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Premio} from './premio'
+import {PremioService} from './premio.service';
 
 @Component({
   selector: 'app-premios',
@@ -7,10 +8,13 @@ import {Premio} from './premio'
 })
 export class PremiosComponent implements OnInit {
 
-  premio:Premio[]=[];
-  constructor() { }
+  premios:Premio[]=[];
+  constructor(private premioService: PremioService) { }
 
   ngOnInit(): void {
+    this.premioService.getPremios().subscribe(
+      premios=>this.premios=premios
+    );
   }
 
 }

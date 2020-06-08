@@ -5,5 +5,5 @@ import { Component } from "@angular/core";
   styleUrls: ['footer.component.css']
 })
 export class FooterComponent {
-    autor: any={nombre:'Nelson', apellido: 'Posada'}
+    autor: any={nombre:'Nelson Javier', apellido: 'Posada Flórez'}
 }
