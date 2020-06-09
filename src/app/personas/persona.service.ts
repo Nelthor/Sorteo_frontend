@@ -11,7 +11,7 @@ export class PersonaService {
 
   private urlEndPoint:string='http://localhost:8080/prueba/personas';
 
-  private httpHeaders =new HttpHeaders({'Content-Type':'aplication/json'})
+  private httpHeaders =new HttpHeaders({'Content-Type':'application/json; charset=utf-8'})
 
   constructor(private http: HttpClient) { }
 
@@ -23,6 +23,20 @@ export class PersonaService {
   }
 
   create(persona: Persona): Observable<Persona>{
+
     return this.http.post<Persona>(this.urlEndPoint,persona,{headers: this.httpHeaders});
+
+  }
+
+  getPersona(id): Observable<Persona>{
+    return this.http.get<Persona>(`${this.urlEndPoint}/${id}`)
+  }
+
+  update(persona: Persona):Observable<Persona>{
+    return this.http.put<Persona>(`${this.urlEndPoint}/${persona.id}`, persona,{headers: this.httpHeaders})
+  }
+
+  delete(id:number): Observable<Persona>{
+    return this.http.delete<Persona>(`${this.urlEndPoint}/${id}`,{headers: this.httpHeaders})
   }
 }

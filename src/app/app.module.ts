@@ -17,10 +17,11 @@ import {FormsModule} from '@angular/forms'
 
 const routes: Routes=[
   {path: '', redirectTo:'/personas', pathMatch: 'full'},
-  {path: 'ganadores', component: GanadoresComponent},
+  {path: 'Lenguajes', component: GanadoresComponent},
   {path: 'personas', component: PersonasComponent},
   {path: 'premios', component: PremiosComponent},
-  {path: 'personas/form', component: FormComponent}
+  {path: 'personas/form', component: FormComponent},
+  {path: 'personas/form/:id', component: FormComponent}
 ];
 
 @NgModule({

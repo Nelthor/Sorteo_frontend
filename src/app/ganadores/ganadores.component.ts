@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GanadoresComponent implements OnInit {
 
-  listaCurso: string[]=['TypeScript', 'JavaScript', 'Java SE','C#','PHP'];
+  listaCurso: string[]=['TypeScript', 'JavaScript', 'Java EE','C#','VB','SQL'];
 
   habilitar: boolean=true;
 
