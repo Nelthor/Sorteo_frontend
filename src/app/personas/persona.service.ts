@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
 import {Persona} from './persona';
-import {Observable} from 'rxjs'
+import {Observable,throwError} from 'rxjs'
 import {of} from 'rxjs'
 import {HttpClient, HttpHeaders} from '@angular/common/http'
-import {map} from 'rxjs/operators'
+import {map, catchError} from 'rxjs/operators'
+import swal from 'sweetalert2'
 
 
 @Injectable()
@@ -29,7 +30,12 @@ export class PersonaService {
   }
 
   getPersona(id): Observable<Persona>{
-    return this.http.get<Persona>(`${this.urlEndPoint}/${id}`)
+    return this.http.get<Persona>(`${this.urlEndPoint}/${id}`).pipe(
+      catchError(e=>{
+        swal.fire('Error al editar', 'error');
+        return throwError(e);
+      })
+    )
   }
 
   update(persona: Persona):Observable<Persona>{
